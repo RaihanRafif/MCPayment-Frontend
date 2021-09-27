@@ -1,0 +1,102 @@
+/* IMPORT */
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100;300;400;500;600;700;800&display=swap");
+
+body {
+  width: 90%;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Main */
+.App {
+  border: 2px black solid;
+  border-radius: 10px;
+}
+
+/* Header */
+.header {
+  background-color: aquamarine;
+  display: flex;
+}
+
+.header .balance {
+  text-align: left;
+  font-family: "Sora", sans-serif;
+  font-weight: 400;
+  margin-left: 9vw;
+}
+
+.buttonSection {
+  float: right;
+  display: flex;
+  margin-left: auto;
+  margin-top: auto !important;
+  margin-right: 2vw;
+}
+
+.buttonSection button {
+  background-color: transparent;
+  border: none;
+  height: 60px;
+  width: 60px;
+  font-size: 35px;
+}
+.buttonSection button:hover {
+  color: rgb(43, 43, 255);
+  cursor: pointer;
+}
+.addIncomes {
+  font-size: 35px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+}
+.addExpenses {
+  font-size: 35px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+}
+
+/* MAINMENU */
+.mainmenu {
+  height: 80vh !important;
+  background-color: blanchedalmond;
+  display: flex;
+}
+.mainmenu .sideSection {
+  width: 10%;
+  height: 100%;
+  background-color: blue;
+}
+.mainmenu .mainSection {
+  width: 90%;
+  height: 100%;
+}
+.mainmenu .mainSection .topSection {
+  height: 10%;
+  width: 100%;
+  background-color: yellow;
+}
+.mainmenu .mainSection .list {
+  height: 90%;
+  width: 100%;
+  background-color: green;
+  border: 2px solid #000;
+}
+
+.tableList {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tableList td,
+#customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.tableList tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
