@@ -1,9 +1,19 @@
 import React from "react";
 import "../Style/style.css";
 import { connect } from "react-redux";
+import { useEffect } from "react";
+import { getTransaction } from "../states/transaction/actions";
 
 const Mainmenu = (props) => {
-  return (
+  const { transactionHistory, getTransaction } = props;
+
+  console.log("UASHDUHDS", transactionHistory);
+
+  useEffect(() => {
+    getTransaction();
+  }, [getTransaction]);
+
+  return transactionHistory ? (
     <div className="mainmenu">
       <div className="sideSection"></div>
       <div className="mainSection">
@@ -21,15 +31,20 @@ const Mainmenu = (props) => {
         </div>
       </div>
     </div>
+  ) : (
+    <div>
+      <h2>Belum ada Transaksi</h2>
+    </div>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {};
-};
+const mapStateToProps = (state) => ({
+  transactionHistory: state.transaction.transactionHistory,
+  balance: state.balance,
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {};
-};
+const mapDispatchToProps = (dispatch) => ({
+  getTransaction: () => dispatch(getTransaction()),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Mainmenu);
