@@ -5,9 +5,19 @@ const initialState = {
 const transactionReducer = (state = initialState, action) => {
   switch (action.type) {
     case "GET_TRANSACTION":
+      const transaction = action.payload.transaction;
       return {
         ...state,
-        transactionHistory: action.payload,
+        transactionHistory: Object.keys(transaction).map((key) => [
+          transaction[key],
+        ]),
+        balance: action.payload.balance,
+      };
+
+    case "ADD_TRANSACTION":
+      return {
+        ...state,
+        balance: action.payload.balance,
       };
 
     default:

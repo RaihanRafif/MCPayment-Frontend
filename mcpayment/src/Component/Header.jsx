@@ -4,11 +4,10 @@ import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 import { getTransaction } from "../states/transaction/actions";
+import useRouter from 'use-react-router'
 
 const Header = (props) => {
-  const { transactionHistory, getTransaction } = props;
-
-  console.log("UASHDUHDS", transactionHistory);
+  const { getTransaction, balance } = props;
 
   useEffect(() => {
     getTransaction();
@@ -17,20 +16,8 @@ const Header = (props) => {
   return (
     <div className="header">
       <div className="balance">
-        <h3>Balance</h3>
-        <p>RP {transactionHistory.balance}</p>
-      </div>
-      <div className="buttonSection">
-        <div className="addIncomes">
-          <button>
-            <AiFillPlusCircle />
-          </button>
-        </div>
-        <div className="addExpenses">
-          <button>
-            <AiFillMinusCircle />
-          </button>
-        </div>
+        <h1>Balance</h1>
+        <h3>RP {balance}</h3>
       </div>
     </div>
   );
@@ -38,7 +25,7 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => ({
   transactionHistory: state.transaction.transactionHistory,
-  balance: state.balance,
+  balance: state.transaction.balance,
 });
 
 const mapDispatchToProps = (dispatch) => ({
